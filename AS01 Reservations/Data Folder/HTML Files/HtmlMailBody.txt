@@ -1,0 +1,7 @@
+﻿<tr><td>Unique Id</td><td>Guest Name</td><td>Property</td><td>No. Of Adults</td><td>Room Type</td><td>Status</td><td>Booking Type</td><td>Updated Date Time</td></tr>
+<tr><td>929092903</td><td>Harsh Kumar  Jain</td><td>The Lalit</td><td>234</td><td>SDB</td><td>Success</td><td>Cancelled</td><td>03/02/2023 17:57:21</td></tr>
+<tr><td>H-1234333</td><td>Harsh Kumar  Jain</td><td>The Lalit</td><td>234</td><td>SDB</td><td>Success</td><td>Cancelled</td><td>03/02/2023 17:57:27</td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>Failed</td><td>Amendment</td><td>03/02/2023 17:57:32</td></tr>
+<tr><td>929092903</td><td>Vikas Sharma</td><td>The Lalit</td><td>234</td><td>SDB</td><td>Success</td><td>Cancelled</td><td>03/02/2023 17:57:34</td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>Failed</td><td>Cancelled</td><td>03/02/2023 17:58:02</td></tr>
+<tr><td>223</td><td>Vikas Sharma</td><td>The Lalit</td><td>3</td><td>SDB</td><td>Success</td><td>Cancelled</td><td>03/02/2023 17:31:54</td></tr>

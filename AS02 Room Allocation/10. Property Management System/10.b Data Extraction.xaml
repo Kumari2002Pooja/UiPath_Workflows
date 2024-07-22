@@ -1,0 +1,324 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="_10_b_Data_Extraction" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:j="clr-namespace:Json_Regex;assembly=Json Regex" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="File" Type="InArgument(si:FileInfo)" />
+    <x:Property Name="iodtReservations" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="istrSubject" Type="InArgument(x:String)" />
+    <x:Property Name="idictAssetsData" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>647,745</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>_10_b_Data_Extraction_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.PDF.Activities</x:String>
+      <x:String>Json_Regex</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>System.Collections.Specialized</x:String>
+      <x:String>System.Globalization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Json Regex</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Collections.Specialized</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Flowchart sap2010:Annotation.AnnotationText="Extracting data based on the extension of the recieved file." DisplayName="Data Extraction" sap:VirtualizedContainerService.HintSize="634,680" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart.Variables>
+      <Variable x:TypeArguments="x:String" Name="strExtension" />
+      <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="dictExtractedData2" />
+      <Variable x:TypeArguments="x:String" Name="strArrivalDate" />
+    </Flowchart.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+        <av:Size x:Key="ShapeSize">60,75</av:Size>
+        <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,127.5</av:PointCollection>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        <x:Double x:Key="Height">612.5</x:Double>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Flowchart.StartNode>
+      <x:Reference>__ReferenceID4</x:Reference>
+    </Flowchart.StartNode>
+    <FlowStep x:Name="__ReferenceID4">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">83,127.5</av:Point>
+          <av:Size x:Key="ShapeSize">434,82</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">300,209.5 300,239.5 312.5,239.5 312.5,259.5</av:PointCollection>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Assign DisplayName="Extension of File" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[strExtension]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[File.Extension]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <FlowStep.Next>
+        <FlowSwitch x:TypeArguments="x:String" x:Name="__ReferenceID0" DisplayName="Extension Switch" Expression="[strExtension]" sap:VirtualizedContainerService.HintSize="95,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_2">
+          <FlowSwitch.Default>
+            <FlowStep x:Name="__ReferenceID1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">15,262.5</av:Point>
+                  <av:Size x:Key="ShapeSize">200,81</av:Size>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Sequence DisplayName="Not (Pdf | Xlsx)" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_1">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage DisplayName="Invalid Attachments" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[&quot;Inavlid attachment format. Mail will be moved to Failed folder&quot;]" />
+              </Sequence>
+            </FlowStep>
+          </FlowSwitch.Default>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:Point x:Key="ShapeLocation">265,259.5</av:Point>
+              <av:Size x:Key="ShapeSize">95,87</av:Size>
+              <av:PointCollection x:Key="Default">265,303 215,303</av:PointCollection>
+              <av:PointCollection x:Key=".pdfConnector">288.75,346.5 288.75,376.5 130,376.5 130,459.5</av:PointCollection>
+              <av:PointCollection x:Key=".xlsxConnector">336.25,346.5 336.25,376.5 470,376.5 470,459.5</av:PointCollection>
+              <x:String x:Key="DefaultCaseDisplayName">Invalid</x:String>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <FlowStep x:Key=".pdf" x:Name="__ReferenceID2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <av:Point x:Key="ShapeLocation">30,459.5</av:Point>
+                <av:Size x:Key="ShapeSize">200,138</av:Size>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Sequence sap2010:Annotation.AnnotationText="Extracting the data from pdf attachments through json library." DisplayName="Pdf Extraction" sap:VirtualizedContainerService.HintSize="200,138" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:String" Name="strPdfText" />
+                <Variable x:TypeArguments="s:String[]" Name="arrstrPdfText" />
+                <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="dictExtractedData1" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text from attachment" FileName="[File.FullName]" sap:VirtualizedContainerService.HintSize="486,60" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" Text="[strPdfText]" />
+              <ui:LogMessage DisplayName="File Name" sap:VirtualizedContainerService.HintSize="486,92" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Trace" Message="[&quot;Details of Exctracted data form &quot;+File.Name+&quot; :&quot;]" />
+              <j:Json_Regex DisplayName="Extracting General Data" ExtractedData="[dictExtractedData1]" sap:VirtualizedContainerService.HintSize="486,192" sap2010:WorkflowViewState.IdRef="Json_Regex_1" JsonFilePath="[idictAssetsData(&quot;AS02 - Input Data Path&quot;).ToString+&quot;\Regex Json\GeneralRegex.json&quot;]" TestString="[strPdfText]" />
+              <Assign DisplayName="Assign Arrival Date" sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[strArrivalDate]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[Convert.todatetime(dictExtractedData1("strArrivalDate").ToString.Trim,system.globalization.cultureinfo.InvariantCulture).ToString("dd-MM-yyyy")]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign DisplayName="Splitting Pdf text" sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="s:String[]">[arrstrPdfText]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="s:String[]">[strPdfText.Split({"Holder"},StringSplitOptions.None)]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For each SplittedText in array" sap:VirtualizedContainerService.HintSize="486,1094" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[arrstrPdfText]">
+                <ui:ForEach.Body>
+                  <ActivityAction x:TypeArguments="x:String">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:String" Name="SplittedText" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="452,908" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <If Condition="[SplittedText.Contains(&quot;Guest&quot;) And SplittedText.Contains(&quot;Night&quot;)]" DisplayName="SplittedText Validation" sap:VirtualizedContainerService.HintSize="410,820" sap2010:WorkflowViewState.IdRef="If_1">
+                        <If.Then>
+                          <Sequence sap:VirtualizedContainerService.HintSize="376,638" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <j:Json_Regex DisplayName="Extracting Specific Data" ExtractedData="[dictExtractedData2]" sap:VirtualizedContainerService.HintSize="334,192" sap2010:WorkflowViewState.IdRef="Json_Regex_2" JsonFilePath="[idictAssetsData(&quot;AS02 - Input Data Path&quot;).ToString+&quot;\Regex Json\SpecificRegex.json&quot;]" TestString="[SplittedText]" />
+                            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{istrSubject,dictExtractedData1(&quot;strBookingReference&quot;),dictExtractedData1(&quot;strHotelName&quot;),dictExtractedData2(&quot;strGuestName&quot;),dictExtractedData2(&quot;strMealPlan&quot;),dictExtractedData2(&quot;strHotelReference&quot;),&quot;1&quot;,strArrivalDate,dictExtractedData2(&quot;strCheckOutDate&quot;),dictExtractedData2(&quot;strTravelReason&quot;),DateTime.Now.ToString}]" DataTable="[iodtReservations]" DisplayName="Add Data Row to dtReservations" sap:VirtualizedContainerService.HintSize="334,186" sap2010:WorkflowViewState.IdRef="AddDataRow_3" />
+                            <ui:LogMessage DisplayName="Extracted Data" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Booking Ref. No. : &quot;+dictExtractedData1(&quot;strBookingReference&quot;)+&quot;; &quot;+&quot;Hotel Name: &quot;+dictExtractedData1(&quot;strHotelName&quot;)+&quot;; &quot;+&quot;Guest Name: &quot;+dictExtractedData2(&quot;strGuestName&quot;)+&quot;; &quot;+&quot;Meal Plan: &quot;+dictExtractedData2(&quot;strMealPlan&quot;)+&quot;; &quot;+&quot;Hotel Ref. No.: &quot;+dictExtractedData2(&quot;strHotelReference&quot;)+&quot;; Nights: 1 ; &quot;+&quot;Arrival Date: &quot;+strArrivalDate+&quot;; &quot;+&quot;Check Out Date: &quot;+dictExtractedData2(&quot;strCheckOutDate&quot;)+&quot;; &quot;+&quot;Travel Reason: &quot;+dictExtractedData2(&quot;strTravelReason&quot;)]" />
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_6" />
+                        </If.Else>
+                      </If>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:ForEach.Body>
+              </ui:ForEach>
+              <ui:LogMessage DisplayName="Confirmation Message" sap:VirtualizedContainerService.HintSize="486,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Pdf Extraction:  Completed from &quot;+File.Name.ToString]" />
+              <ui:DeleteFileX DisplayName="Delete Pdf attachment" sap:VirtualizedContainerService.HintSize="486,80" sap2010:WorkflowViewState.IdRef="DeleteFileX_2" Path="[File.FullName]" />
+            </Sequence>
+          </FlowStep>
+          <FlowStep x:Key=".xlsx" x:Name="__ReferenceID3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <av:Point x:Key="ShapeLocation">370,459.5</av:Point>
+                <av:Size x:Key="ShapeSize">200,153</av:Size>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Sequence sap2010:Annotation.AnnotationText="Extracting data from xlsx attachment and appending the extracted datatable to dtReservations." DisplayName="Excel Extraction" sap:VirtualizedContainerService.HintSize="592,1322" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="sd:DataTable" Name="dtExcelData" />
+                <Variable x:TypeArguments="x:String" Default="Sheet1" Name="strSheetName" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtExcelData]" DisplayName="Reading Attachment File(.xlsx)" sap:VirtualizedContainerService.HintSize="530,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[strSheetName]" WorkbookPath="[File.FullName]" />
+              <ui:LogMessage DisplayName="File Name" sap:VirtualizedContainerService.HintSize="530,92" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Trace" Message="[&quot;Details of Exctracted data form &quot;+File.Name+&quot; :&quot;]" />
+              <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtExcelData]" DisplayName="For Each Row in dtExcelData" sap:VirtualizedContainerService.HintSize="530,668" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                <ui:ForEachRow.Body>
+                  <ActivityAction x:TypeArguments="sd:DataRow">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="sd:DataRow" Name="Row" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Do the following operations on each row" sap:VirtualizedContainerService.HintSize="496,551" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign DisplayName="Assign Arrival Date" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[strArrivalDate]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[Convert.todatetime(Row("Check-in Date").ToString.Trim,system.globalization.cultureinfo.InvariantCulture).ToString("dd-MM-yyyy")]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{istrSubject,Row(&quot;Booking Reference Number&quot;),Row(&quot;Hotel Name&quot;),Row(&quot;Guest Name&quot;),Row(&quot;Meal Plan&quot;),Row(&quot;Hotel Reference&quot;),&quot;1&quot;,strArrivalDate,Row(&quot;Check-out Date&quot;),Row(&quot;Reason for travel&quot;),DateTime.Now.ToString}]" DataTable="[iodtReservations]" DisplayName="Add Data Row to dtReservations" sap:VirtualizedContainerService.HintSize="434,186" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                      <ui:LogMessage DisplayName="Extracted Data" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Booking Ref. No.: &quot;+Row(&quot;Booking Reference Number&quot;).ToString+&quot;; &quot;+&quot;Hotel Name: &quot;+Row(&quot;Hotel Name&quot;).ToString+&quot;; &quot;+&quot;Guest Name: &quot;+Row(&quot;Guest Name&quot;).ToString+&quot;; &quot;+&quot;Meal Plan: &quot;+Row(&quot;Meal Plan&quot;).ToString+&quot;; &quot;+&quot;Hotel Ref. No.:  &quot;+Row(&quot;Hotel Reference&quot;).ToString+&quot;; Nights: 1 ; &quot;+&quot;Arrival Date: &quot;+strArrivalDate+&quot;; &quot;+&quot;Check out Date: &quot;+Row(&quot;Check-out Date&quot;).ToString+&quot;; &quot;+&quot;Travel Reason: &quot;+Row(&quot;Reason for travel&quot;).ToString]" />
+                    </Sequence>
+                  </ActivityAction>
+                </ui:ForEachRow.Body>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:ForEachRow>
+              <ui:LogMessage DisplayName="Confirmation Message" sap:VirtualizedContainerService.HintSize="530,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Excel Extraction: &quot;+dtExcelData.RowCount.ToString+&quot; rows have been extracted from &quot;+File.Name.ToString]" />
+              <ui:DeleteFileX DisplayName="Delete xlsx Attachment" sap:VirtualizedContainerService.HintSize="530,80" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[File.FullName]" />
+            </Sequence>
+          </FlowStep>
+        </FlowSwitch>
+      </FlowStep.Next>
+    </FlowStep>
+    <x:Reference>__ReferenceID0</x:Reference>
+    <x:Reference>__ReferenceID1</x:Reference>
+    <x:Reference>__ReferenceID2</x:Reference>
+    <x:Reference>__ReferenceID3</x:Reference>
+  </Flowchart>
+</Activity>

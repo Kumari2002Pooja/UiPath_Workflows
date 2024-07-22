@@ -1,0 +1,1 @@
+Move the data folder to the desktop in order to run.

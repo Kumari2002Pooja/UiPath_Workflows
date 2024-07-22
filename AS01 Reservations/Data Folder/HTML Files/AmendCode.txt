@@ -1,0 +1,15 @@
+﻿<html>
+<head>
+</head>
+<body>
+<table border=3>
+"<tr><td>Unique Id</td><td>Guest Name</td><td>Property</td><td>No. Of Adults</td><td>Room Type</td><td>Status</td><td>Booking Type</td><td>Updated Date Time</td></tr>
+<tr><td>929092903</td><td>Vikas Sharma</td><td>The Lalit</td><td>3</td><td>SDB</td><td>Success</td><td>New Booking</td><td>02/28/2023 22:06:56</td></tr>
+<tr><td>929092903</td><td>Vikas Sharma</td><td>The Lalit</td><td>3</td><td>SDB</td><td>Success</td><td>New Booking</td><td>02/28/2023 22:07:02</td></tr>
+<tr><td>929092903</td><td>Harsh Tripathi</td><td>The Lalit</td><td>3</td><td>SDB</td><td>Success</td><td>Amendment</td><td>02/28/2023 22:07:04</td></tr>
+<tr><td>8938939</td><td>Harsh Tripathi</td><td>The Lalit</td><td>3</td><td>SDB</td><td>Success</td><td>Amendment</td><td>02/28/2023 22:07:06</td></tr>
+<tr><td>929092903</td><td>Vikas Sharma</td><td>The Lalit</td><td>3</td><td>SDB</td><td>Success</td><td>Cancelled</td><td>02/28/2023 22:07:09</td></tr>
+<tr><td>223</td><td>Vikas Sharma</td><td>The Lalit</td><td>3</td><td>SDB</td><td>Success</td><td>Cancelled</td><td>02/28/2023 22:07:11</td></tr>"
+</table>
+</body>
+</html>
